@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" href="{{asset('images/innotive.png')}}" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -13,6 +14,7 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
         
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -20,7 +22,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-purple-200">
             @include('layouts.navigation')
 
             {{-- <!-- Page Heading -->
@@ -31,14 +33,14 @@
             </header> --}}
 
             <!-- Page Content -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2">
-                <div class="lg:flex lg:justify-between">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 ">
+                <div class="lg:flex lg:justify-between ">
         
-                    <div class="lg:w-32">
+                    <div class="lg:w-32 " >
                         @include('_sidebar-links')
                     </div>
         
-                    <div class="flex-1 lg:mx-10" style="max-width: 700px">
+                    <div class="flex-1 lg:mx-10" style="max-width: 700px bg-purple-50">
                         <main>
                             {{ $slot }}
                         </main>

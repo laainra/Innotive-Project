@@ -51,14 +51,13 @@
       @enderror
     </div>
     <div class="mb-6">
-      <label 
-      class="block mb-2 uppercase font-bold text-xs text-gray-700"
-      for="description">Description</label>
-      <textarea name="description" id="description" class="border border-gray-400 p-2 w-full rounded-lg"></textarea>
+      <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="description">Description</label>
+      <textarea name="description" id="description" class="border border-gray-400 p-2 w-full rounded-lg">{{ old('description', $user->description) }}</textarea>
       @error('description')
-        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
       @enderror
     </div>
+    
     <div class="mb-6">
       <label 
       class="block mb-2 uppercase font-bold text-xs text-gray-700"
@@ -116,8 +115,8 @@
       @enderror
     </div>
     <div class="mb-6">
-      <button type="submit" class="border bg-blue-500 text-white px-2 py-1 mr-4 rounded-lg">Submit</button>
-      <a href="{{route('users.show', $user)}}" class="border hover:bg-gray-300 px-2 py-1 rounded-lg">Cancel</a>
+      <button type="submit" class="border bg-purple-500 text-white px-2 py-1 mr-4 rounded-lg">Submit</button>
+      <a href="{{route('users.show', $user)}}" class="border bg-purple-500 hover:bg-red-300 px-2 py-1 rounded-lg">Cancel</a>
     </div>
   </form>
 </x-app-layout>

@@ -37,7 +37,7 @@
         </p>
       </div>
       @if ($tweet->tweetImage != 'http://localhost:8000/')
-        <img src="{{asset($tweet->tweetImage)}}" width="50%" class="mx-auto">
+        <img src="{{$tweet->tweetImage}}" width="50%" class="mx-auto">
       @endif
       <x-like-buttons :tweet="$tweet"/>
   </div>

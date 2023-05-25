@@ -1,11 +1,11 @@
-<div class="border border-blue-400 rounded-lg py-4 px-4 mb-6">
+<div class="border border-purple-400 rounded-lg py-4 px-4 mb-6">
   <form action="/tweets" method="POST" enctype="multipart/form-data">
     @csrf
       <textarea 
       name="body" 
       id="" 
       class="w-full border-none rounded-lg"
-      placeholder="What's on your mind"
+      placeholder="Show Your Innovation"
       required
       autofocus
       ></textarea>
@@ -25,8 +25,8 @@
             </label>
             <button 
             type="submit"
-            class="bg-blue-500 rounded-lg shadow py-1 px-2 text-white h-10 hover:bg-blue-900"
-            >Publish</button>
+            class="bg-purple-500 rounded-lg shadow py-1 px-3 ml-2 text-white h-10 hover:bg-purple-900"
+            >Post</button>
           </div>
       </footer>
   </form>
