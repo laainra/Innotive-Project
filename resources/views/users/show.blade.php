@@ -45,7 +45,6 @@
     </p>
 
   </header>
-  @include('_publish-tweet-panel')
   @include('_timeline', [
     'tweets' => $tweets
   ])

@@ -19,10 +19,13 @@
           height="50"
           >
           <div class="flex items-center">
+            <p class="mr-3" id="fileName"></p>
             <label for="tweetImage" class="mr-2 cursor-pointer" title="Add Image">
-              <input type="file" name="tweetImage" id="tweetImage" style="display: none">
+              <input type="file" name="tweetImage" id="tweetImage" style="display: none" onchange="displayFileName()">
               <span><i class="far fa-image fa-2x"></i></span>
             </label>
+            
+            
             <button 
             type="submit"
             class="bg-purple-500 rounded-lg shadow py-1 px-3 ml-2 text-white h-10 hover:bg-purple-900"
@@ -34,3 +37,13 @@
     <p class="mt-2 text-red-500 text-sm">{{$message}}</p>
   @enderror
 </div>
+
+
+<script>
+  function displayFileName() {
+    var fileInput = document.getElementById('tweetImage');
+    var fileName = fileInput.files[0].name;
+    var fileNameElement = document.getElementById('fileName');
+    fileNameElement.innerText = fileName;
+  }
+  </script>

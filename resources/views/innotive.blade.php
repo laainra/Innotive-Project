@@ -57,24 +57,19 @@
 
                           </div>
                           @if (Route::has('password.request'))
-                          <a class="text-sm text-blue-500 hover:underline" href="{{ route('password.request') }}">
+                          <a class=" text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                               {{ __('Forgot your password?') }}
                           </a>
                       @endif
+      
             <input type="submit" value="Login" class="btn"/>
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
-                <a href="{{ url('/auth/facebook') }}" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="{{ url('/auth/twitter') }}" class="social-icon">
-                    <i class="fab fa-twitter"></i>
+                <a href="{{ url('/auth/github') }}" class="social-icon">
+                    <i class="fab fa-github"></i>
                 </a>
                 <a href="{{ url('/auth/google') }}" class="social-icon">
                     <i class="fab fa-google"></i>
-                </a>
-                <a href="{{ url('/auth/linkedin') }}" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
         </form>
@@ -130,7 +125,7 @@
           <div class="content">
             <h3>Sign In to<br>Recharge Direct</h3><br>
             <p class="m-3">
-              Hello, Welcome to Website, If you don't have an account you can
+              Hello Creativity Addict, Welcome to INNOTIVE... <br>Join Us Now To Show Your Innovation
             </p>
             <button  class="btn transparent" id="sign-up-btn">Register</button>
           </div>

@@ -37,7 +37,7 @@
                 @if (Route::has('login'))
                 <div class="hidden text-center px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ route('tweets') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ route('tweets') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 

@@ -17,8 +17,11 @@
             <a href="{{route('users.show', $tweet->user)}}">
               {{ $tweet->user->name }}
             </a>
+            <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}}</p>
           </h5>
+          
         </div>
+        
         <div>
           @if (auth()->user()->is($tweet->user))
             <form action="{{route('tweets.destroy', $tweet)}}" method="POST">

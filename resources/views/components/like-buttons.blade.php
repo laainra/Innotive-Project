@@ -43,3 +43,41 @@
 
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.like-button').click(function () {
+            var tweetId = $(this).data('tweet-id');
+            var button = $(this);
+
+            $.ajax({
+                url: '/tweets/' + tweetId + '/like',
+                method: 'POST',
+                data: {_token: '{{ csrf_token() }}'},
+                success: function (response) {
+                    var likeCount = response.likes;
+                    button.toggleClass('liked');
+                    button.find('.like-count').text(likeCount);
+                }
+            });
+        });
+
+        $('.dislike-button').click(function () {
+            var tweetId = $(this).data('tweet-id');
+            var button = $(this);
+
+            $.ajax({
+                url: '/tweets/' + tweetId + '/like',
+                method: 'DELETE',
+                data: {_token: '{{ csrf_token() }}'},
+                success: function (response) {
+                    var dislikeCount = response.dislikes;
+                    button.toggleClass('disliked');
+                    button.find('.dislike-count').text(dislikeCount);
+                }
+            });
+        });
+    });
+</script>
