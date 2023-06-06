@@ -9,6 +9,11 @@
           Explore
       </a>
   </li>
+  <li> 
+      <a class="font-bold text-lg mb-4 block hover:text-purple-500 {{ Request::is('categories*') ? 'text-purple-500' : '' }}" href="/categories">
+          Categories
+      </a>
+  </li>
   {{-- <li> 
     
     @if (auth()->user()->is($user))

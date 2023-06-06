@@ -17,7 +17,7 @@
             <a href="{{route('users.show', $tweet->user)}}">
               {{ $tweet->user->name }}
             </a>
-            <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}} in {{ optional($tweet->category)->name }}</p>
+            <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}} in <a href="/categories/{{$tweet->category->slug}}"> {{ optional($tweet->category)->name }} </a></p>
           </h5>
           
         </div>

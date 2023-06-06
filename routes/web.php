@@ -73,7 +73,7 @@ Route::post('tweets/{tweet}/donate', [DonationController::class, 'store'])->name
 
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
 
 
 require __DIR__.'/auth.php';

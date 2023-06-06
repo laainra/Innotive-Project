@@ -7,7 +7,7 @@
         <span class="material-symbols-outlined loaded {{$tweet->isLikedBy(auth()->user()) ? 'bg-purple-300' : 'bg-purple-200'}} p-1 rounded">
           thumb_up
           </span>
-        {{$tweet->likes ?: 0 }}
+          <span class="like-count">{{$tweet->likes ?: 0}}</span>
       </button>
     </div>
   </form>
@@ -21,7 +21,7 @@
           thumb_down
           </span>
  
-        {{$tweet->dislikes?: 0 }}
+          <span class="dislike-count">{{$tweet->dislikes ?: 0}}</span>
       </button>
 
     </div>
