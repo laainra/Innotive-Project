@@ -11,7 +11,7 @@ class Tweet extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'user_id', 'body', 'tweetImage' ];
+    protected $fillable = [ 'user_id', 'body', 'tweetImage' ,'category_id',];
 
     public function getTweetImageAttribute($value)
     {

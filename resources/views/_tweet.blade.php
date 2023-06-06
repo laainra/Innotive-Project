@@ -17,7 +17,7 @@
             <a href="{{route('users.show', $tweet->user)}}">
               {{ $tweet->user->name }}
             </a>
-            <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}}</p>
+            <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}} in {{ optional($tweet->category)->name }}</p>
           </h5>
           
         </div>
@@ -28,7 +28,7 @@
               @csrf
               @method('DELETE')
               <button type="submit">
-                <i class="fas fa-trash text-red-500"></i>
+                <i class="ml-8 fas fa-trash text-red-500"></i>
               </button>
             </form>
           @endif

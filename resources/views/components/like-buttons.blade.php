@@ -36,8 +36,11 @@
 
   <div class="flex items-right mr-5">
     <button type="submit" class="bg-purple-500 rounded-lg shadow py-1 px-3 ml-2 text-white h-10 hover:bg-purple-900">
-        <a>Donate</a>
-    </button>
+      {{-- <form action="{{ route('donate', $tweet) }}" method="POST">
+        @csrf --}}
+        <a href="{{route('donate.index', $tweet)}}">Donate</a>
+
+      {{-- </form> --}}
   </div>
   <div>
 

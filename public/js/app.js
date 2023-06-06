@@ -21312,3 +21312,11 @@ module.exports = __webpack_require__(/*! D:\git\tweety\resources\css\app.css */"
 
 /******/ });
 
+
+
+        function showSuccessPopup() {
+            alert("Donation berhasil!");
+            
+            // You can also use a modal or other UI element to display the success message
+            window.location.href = "route{{'tweets'}}"; 
+        }

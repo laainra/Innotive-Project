@@ -1,4 +1,9 @@
 <x-app-layout>
+  <form action="{{ route('explore.search') }}" method="GET" class="mb-4">
+    <input type="text" name="search" placeholder="Search users..." class="border border-gray-300 rounded-lg p-2">
+    <button type="submit" class="bg-purple-500 text-white rounded-lg px-4 py-2">Search</button>
+</form>
+
   <div>
     @foreach ($users as $user)
       <a href="{{route('users.show', $user)}}" class="flex items-center mb-5">

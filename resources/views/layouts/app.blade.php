@@ -17,6 +17,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script> --}}
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,20 +36,20 @@
             </header> --}}
 
             <!-- Page Content -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2 ">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  ">
                 <div class="lg:flex lg:justify-between ">
         
-                    <div class="lg:w-32 " >
+                    <div class="lg:w-32 mt-2" >
                         @include('_sidebar-links')
                     </div>
         
-                    <div class="flex-1 lg:mx-10" style="max-width: 700px bg-purple-50">
-                        <main>
+                    <div class=" flex-1 lg:mx-10" style="max-width: 700px bg-purple-50">
+                        <main class="border-l-2 border-r-2 border-purple-300 px-20 mt-2">
                             {{ $slot }}
                         </main>
                     </div>
         
-                    <div class="lg:w-1/6 p-2 rounded-lg">
+                    <div class="lg:w-1/6 p-2 rounded-lg mt-2">
                         @include('_friends-list')
                     </div>
         

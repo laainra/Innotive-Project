@@ -51,6 +51,22 @@
       @enderror
     </div>
     <div class="mb-6">
+      <label 
+      class="block mb-2 uppercase font-bold text-xs text-gray-700"
+      for="phone">Phone</label>
+      <input
+      class="border border-gray-400 p-2 w-full rounded-lg" 
+      type="phone"
+      name="phone"
+      id="phone"
+      value="{{$user->phone}}"
+      required
+      >
+      @error('phone')
+        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+      @enderror
+    </div>
+    <div class="mb-6">
       <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="description">Description</label>
       <textarea name="description" id="description" class="border border-gray-400 p-2 w-full rounded-lg">{{ old('description', $user->description) }}</textarea>
       @error('description')

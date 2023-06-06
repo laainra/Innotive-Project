@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="{{asset('images/innotive.png')}}"/>
 
     <link rel="stylesheet" href="{{asset('css/login.css')}}" />
-    <title>INNOTIVE</title>
+    <title>Innotive</title>
   </head>
   <body>
     <div class="container">
@@ -104,11 +104,17 @@
               <i class="fas fa-user"></i>
               <input type="text" name="username" placeholder="Username" pattern="[a-zA-Z0-9_]+" title="Username must only contain letters, numbers or underscore." value="{{ old('username') }}"required/>
             </div>
+
+            <div class="input-field">
+              <i class="fas fa-phone"></i>
+              <input type="text" name="phone" placeholder="Phone" pattern="(\+62|62|0)8[1-9][0-9]{6,9}" title="Input Valid Phone Number." value="{{ old('phone') }}"required/>
+            </div>
             
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" name="password" placeholder="Password" minlength="8" title="Password must contain  at least 8 characters long" onkeyup="check();" required/>
             </div>
+            
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" id="password_confirmation" type="password" placeholder="Confrim Password"

@@ -20,7 +20,14 @@ class UserController extends Controller
             ->paginate(50),
         ]);
     }
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
 
+        $users = User::where('username', 'like', '%' . $searchTerm . '%')->paginate(10);
+
+        return view('search', compact('users'), ['users' => $users]);
+    }
     public function edit(User $user)
     {
         abort_if($user->isNot(auth()->user()), 404);
