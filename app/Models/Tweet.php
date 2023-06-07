@@ -107,4 +107,9 @@ class Tweet extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+    public function commentCount()
+{
+    return $this->comments->count();
+}
 }

@@ -28,6 +28,14 @@
   </form>
 
   <div class="flex items-center mr-5">
+    <a href="{{route('tweets.show', ['tweet' => $tweet->id])}}" class="text-xs text-purple-800 flex items-center">
+      <span class="material-symbols-outlined p-1 rounded">
+          comment </span>
+          <span class="comment-count">{{ $tweet->comments->count() ?: 0 }}</span>
+      </a>
+  </div>
+
+  <div class="flex items-center mr-5">
     <button type="submit" class="text-xs text-purple-800 flex items-center">
       <span class="material-symbols-outlined p-1 rounded">
           ios_share
