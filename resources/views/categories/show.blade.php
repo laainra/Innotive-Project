@@ -4,7 +4,7 @@
 
     <div class="border border-purple-300 rounded-lg">
       @forelse ($tweets as $tweet)
-      <div class="flex p-4 border-b {{$loop->last ? '' : 'border-b-gray-300'}}">
+      <div class="flex p-4 border-b {{$loop->last ? '' : 'border-b-purple-300'}}">
         <div class="mr-2 flex-shrink-0">
             <a href="{{route('users.show', $tweet->user)}}">
               <img 
@@ -54,5 +54,8 @@
       @empty
         <p class="p-4">Nothing yet, post something.</p>
       @endforelse
+      
     </div>
+
+    
 </x-app-layout>

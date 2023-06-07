@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Tweet;
+use App\Models\Comment;
 use Bavix\Wallet\Traits\HasWallet;
 use Bavix\Wallet\Interfaces\Wallet;
 
@@ -116,6 +117,10 @@ class User extends Authenticatable
     public function socialAccounts()
     {
         return $this->hasMany(SocialAccount::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     // public function wallet()

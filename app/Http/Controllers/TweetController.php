@@ -25,6 +25,19 @@ class TweetController extends Controller
             'categories' => $categories, 
         ]);
     }
+    public function show($id)
+    {
+        $tweet = Tweet::findOrFail($id);
+        $user = $tweet->user;
+        $categories = Category::all();
+    
+        return view('tweets.show', [
+            'tweet' => $tweet,
+            'user' => $user,
+            'categories' => $categories,
+        ]);
+    }
+    
 
     public function store(Request $request)
     {
@@ -53,4 +66,22 @@ class TweetController extends Controller
         Tweet::where('id', $tweet->id)->delete();
         return back();
     }
+    public function likeTweet($id)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->like();
+        $tweet->save();
+        
+        return back();
+    }
+    public function unlikeTweet($id)
+    {
+        $tweet = Tweet::find($id);
+        $tweet->unlike();
+        $tweet->save();
+
+        return back();
+    }
+
+
 }

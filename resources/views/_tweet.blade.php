@@ -34,14 +34,19 @@
           @endif
         </div>
       </div>
+      <a href="{{route('tweets.show', ['tweet' => $tweet->id] )}}">
       <div class="flex justify-between">
+        
         <p class="text-sm">
           {{ $tweet->body }}
         </p>
+
       </div>
       @if ($tweet->tweetImage != 'http://localhost:8000/')
         <img src="{{$tweet->tweetImage}}" width="50%" class="mx-auto">
       @endif
-      <x-like-buttons :tweet="$tweet"/>
+      </a>
+      <x-like-buttons :tweet="$tweet" />
   </div>
+
 </div>

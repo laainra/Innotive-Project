@@ -1,16 +1,18 @@
 <?php
 
-use App\Http\Controllers\ExploreController;
-use App\Http\Controllers\TweetController;
-use App\Http\Controllers\TweetLikesController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopupController;
+use App\Http\Controllers\TweetController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\WalletController;
-use App\Http\Controllers\Auth\SocialiteController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonationController;
-use App\Http\Controllers\TopupController;
+use App\Http\Controllers\ShowTweetController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\TweetLikesController;
+use App\Http\Controllers\Auth\SocialiteController;
 
 
 /*
@@ -29,6 +31,8 @@ Route::get('/', function () {
 });
 
 Route::resource('tweets', TweetController::class);
+// Route::get('tweets/{tweet}', [ShowTweetController::class, 'show'])
+// ->middleware('auth')->name('tweet.detail');
 Route::get('users/{user:username}', [UserController::class, 'show'])
 ->middleware('auth')
 ->name('users.show');
@@ -44,6 +48,12 @@ Route::get('/explore', [ExploreController::class, 'index']);
 Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
 Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
 Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
+
+//comments
+
+Route::post('tweets/{tweet}/comment', [CommentController::class, 'store'])->name('tweets.comment.store');
+Route::get('tweets/{tweet}/comment', [CommentController::class, 'index'])->name('comment.index');
+Route::delete('tweets/{tweet}/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
 
 // socialite
