@@ -75,8 +75,8 @@
           </form>
         
           <div class="flex items-center mr-5">
-            <button type="submit" class="text-xs text-purple-800 flex items-center">
-              <span class="material-symbols-outlined p-1 rounded">
+            <button type="submit" class="text-xs text-purple-800 flex items-center"     >
+              <span class="material-symbols-outlined p-1 rounded" id="iosShareButton">
                   ios_share
             </button>
           </div>
@@ -100,5 +100,10 @@
       'comments' => $tweet->comments,
       'tweet_id' => $tweet->id
     ])
+    @include('tweets.modal')
+
+
+
 
 </x-app-layout>
+

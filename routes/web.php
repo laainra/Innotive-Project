@@ -13,6 +13,8 @@ use App\Http\Controllers\ShowTweetController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TweetLikesController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\ShareButtonController;
+use Jorenvh\Share\ShareFacade as Share;
 
 
 /*
@@ -48,6 +50,8 @@ Route::get('/explore', [ExploreController::class, 'index']);
 Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
 Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
 Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
+Route::get('/tweets/{tweet}', [TweetController::class, 'show'])->name('tweets.show');
+
 
 //comments
 
@@ -55,6 +59,9 @@ Route::post('tweets/{tweet}/comment', [CommentController::class, 'store'])->name
 Route::get('tweets/{tweet}/comment', [CommentController::class, 'index'])->name('comment.index');
 Route::delete('tweets/{tweet}/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
+//share
+
+Route::get('/tweets/{tweet}/share', [ShareButtonController::class, 'share'])->name('tweets.share');
 
 // socialite
 Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);

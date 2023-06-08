@@ -32,7 +32,8 @@ class CommentController extends Controller
 
         $comment = Comment::get();
 
-        return redirect()->route('comment.index', ['tweet' => $tweet->id]);
+        // return redirect()->route('comment.index', ['tweet' => $tweet->id])->back();
+        return back();
 
 
     }

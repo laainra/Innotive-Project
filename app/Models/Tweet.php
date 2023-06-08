@@ -8,9 +8,12 @@ use App\Models\Like;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Builder;
 
+
+
 class Tweet extends Model
 {
     use HasFactory;
+
 
     protected $fillable = [ 'user_id', 'body', 'tweetImage' ,'category_id',];
 

@@ -47,6 +47,7 @@
       @endif
       </a>
       <x-like-buttons :tweet="$tweet" />
+      @include('tweets.modal')
   </div>
 
 </div>
