@@ -46,7 +46,7 @@ Route::get('users/{user:username}/edit', [userController::class, 'edit'])
 Route::patch('users/{user:username}', [userController::class, 'update'])
 ->middleware('auth')
 ->name('users.update');
-Route::get('/explore', [ExploreController::class, 'index']);
+Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
 Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
 Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
 Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
@@ -94,3 +94,5 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->
 
 
 require __DIR__.'/auth.php';
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

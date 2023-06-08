@@ -17,6 +17,7 @@
             </a>
         </div>
         <div>
+          
             <div class="flex justify-between"  style="width: 600px">
               <div>
                 <h5 class="font-bold mb-4">
@@ -40,6 +41,7 @@
                 @endif
               </div>
             </div>
+            <a href="{{route('tweets.show', ['tweet' => $tweet->id] )}}">
             <div class="flex justify-between">
               <p class="text-sm">
                 {{ $tweet->body }}
@@ -48,8 +50,9 @@
             @if ($tweet->tweetImage != 'http://localhost:8000/')
               <img src="{{$tweet->tweetImage}}" width="50%" class="mx-auto">
             @endif
-            
+          </a>
         </div>
+      </a>
       </div>
       @empty
         <p class="p-4">Nothing yet, post something.</p>

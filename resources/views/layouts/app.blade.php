@@ -42,7 +42,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  ">
                 <div class="lg:flex lg:justify-between ">
         
-                    <div class="lg:w-32 mt-2" >
+                    <div class="hidden lg:block lg:w-32 mt-2 " >
                         @include('_sidebar-links')
                     </div>
         

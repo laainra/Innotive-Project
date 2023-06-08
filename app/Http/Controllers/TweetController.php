@@ -9,10 +9,10 @@ use App\Models\Category;
 use App\Http\Controllers\Auth;
 
 class TweetController extends Controller
-{
+{   
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     public function index(User $user)

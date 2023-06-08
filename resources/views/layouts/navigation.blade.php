@@ -83,6 +83,18 @@
             <x-responsive-nav-link :href="route('tweets.index')" :active="request()->routeIs('tweets.index')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('explore')" :active="request()->routeIs('explore')">
+                {{ __('Explore') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                {{ __('Categories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users.show', auth()->user()->username)" :active="request()->routeIs(route('users.show', auth()->user()->username))">
+                {{ __('Profile') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('wallet.index')" :active="request()->routeIs('wallet.index')">
+                {{ __('Wallet') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
