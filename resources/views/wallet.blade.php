@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="container text-center">
         {{-- <h1>Your Wallet Balance: {{ $wallet->balance }}</h1> --}}
-        <h1>Your Wallet Balance: </h1>
-        <h1 id='balance'>0.0 </h1>
+        <h1 class="text-3xl mb-7 mt-10">Your Wallet Balance: </h1>
+        <h1 class="text-2xl mb-7" id='balance'>0.0 </h1>
         {{-- <h1 id='balance' class="text-lg text-bold border-solid border-purple-500 p-5 <h1>Your Wallet Balance: @if ($user->wallet) {{ $user->wallet->balance }} @else N/A @endif</h1> --}}
 
         <a href="{{ route('topup') }}" class="bg-purple-500 rounded-lg shadow py-1 px-3 ml-2 text-white h-10 hover:bg-purple-900">Top-up</a>

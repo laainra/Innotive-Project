@@ -32,7 +32,12 @@ Route::get('/', function () {
     return view('innotive');
 });
 
-Route::resource('tweets', TweetController::class);
+
+
+
+// wallet
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('tweets', TweetController::class);
 // Route::get('tweets/{tweet}', [ShowTweetController::class, 'show'])
 // ->middleware('auth')->name('tweet.detail');
 Route::get('users/{user:username}', [UserController::class, 'show'])
@@ -52,6 +57,10 @@ Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
 Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
 Route::get('/tweets/{tweet}', [TweetController::class, 'show'])->name('tweets.show');
 
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+
+
 
 //comments
 
@@ -63,12 +72,9 @@ Route::delete('tweets/{tweet}/comment/{comment}', [CommentController::class, 'de
 
 Route::get('/tweets/{tweet}/share', [ShareButtonController::class, 'share'])->name('tweets.share');
 
-// socialite
-Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
-Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
 
-// wallet
-Route::middleware(['auth'])->group(function () {
+
+    
     // ...
     Route::get('/wallet', [WalletController::class, 'index'])->name('wallet.index');
     Route::get('/wallet/topup', [TopupController::class, 'index'])->name('topup');
@@ -88,10 +94,9 @@ Route::post('tweets/{tweet}/donate', [DonationController::class, 'store'])->name
 //category
 
 
-
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
-
+// socialite
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
 
 require __DIR__.'/auth.php';
 

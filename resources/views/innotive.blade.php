@@ -56,11 +56,11 @@
           
 
                           </div>
-                          @if (Route::has('password.request'))
+                     
                           <a class=" text-sm text-gray-600 hover:text-gray-900" href="/forgot-password">
                               {{ __('Forgot your password?') }}
                           </a>
-                      @endif
+                     
       
             <input type="submit" value="Login" class="btn"/>
             <p class="social-text">Or Sign in with social platforms</p>
