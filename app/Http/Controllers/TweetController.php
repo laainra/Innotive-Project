@@ -16,7 +16,7 @@ class TweetController extends Controller
     }
 
     public function index(User $user)
-    {   $user;
+    {   $user = auth()->user();
         $tweets = auth()->user()->timeline();
         $categories = Category::all();
         return view('tweets.index', [

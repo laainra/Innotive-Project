@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Like;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Builder;
+use Takshak\Wallet\Traits\HasWalletTransaction;
 
 
 
 class Tweet extends Model
 {
     use HasFactory;
+    use HasWalletTransaction;
 
 
     protected $fillable = [ 'user_id', 'body', 'tweetImage' ,'category_id',];

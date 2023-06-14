@@ -1,4 +1,5 @@
 <x-app-layout>
+    @section('title', 'Explore')
 
     <form action="{{ route('explore.search') }}" method="GET" class="mb-4">
         <input type="text" name="search" placeholder="Search users..." class="border border-gray-300 rounded-lg p-2">

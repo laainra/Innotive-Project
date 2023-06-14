@@ -1,4 +1,5 @@
 <x-app-layout>
+  @section('title', 'Profile')
   <header class="mb-6 relative">
     <div class="relative">  
       <img 

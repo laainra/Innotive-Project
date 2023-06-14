@@ -16,6 +16,8 @@ class Transaction extends Model
         'debited_wallet',
         'amount',
         'type',
+        'method',
+        'status',
     ];
 
     public function creditedWallet()

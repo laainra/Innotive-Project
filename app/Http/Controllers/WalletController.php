@@ -1,17 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Wallet;
+
 use App\Models\Transaction;
+use App\Models\Wallet;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
 {
 
-    public function index()
+    public function __construct()
     {
-        $wallet = auth()->user()->wallet;
-        return view('wallet', compact('wallet'));
+        $this->middleware(['auth','verified']);
+    }
+
+    public function index(Transaction $transactions)
+    {
+        
+        $user = Auth::user(); // Retrieve the currently authenticated user
+        $wallet = $user->wallet; 
+        $transactions = $wallet->transactions;
+        // Retrieve the user's wallet
+    
+        if (!$wallet) {
+            $wallet = $user->Wallet::create([
+                'user_id' => $user->id,
+                'balance' => 0, // Set initial balance to 0
+            ]); // Create wallet if it doesn't exist
+        }
+        
+        return view('wallet', compact('user', 'wallet', 'transactions'));
     }
 
     public function topUp()
@@ -19,19 +39,6 @@ class WalletController extends Controller
         return view('topup');
     }
 
-    public function storeTopUp(Request $request)
-    {
-        $validatedData = $request->validate([
-            'amount' => 'required|numeric|min:0',
-        ]);
-
-        $user = auth()->user();
-        $amount = $validatedData['amount'];
-
-        $user->wallet->increment('balance', $amount);
-
-        return redirect()->route('wallet.index')->with('success', 'Top-up successful!');
-    }
 
 
 

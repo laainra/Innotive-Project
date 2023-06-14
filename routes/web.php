@@ -14,6 +14,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TweetLikesController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\ShareButtonController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 use Jorenvh\Share\ShareFacade as Share;
 
 
@@ -29,7 +31,10 @@ use Jorenvh\Share\ShareFacade as Share;
 */
 
 Route::get('/', function () {
-    return view('innotive');
+    $user = auth()->user();
+    return view('innotive', [
+        'user' => $user
+    ]);
 });
 
 
@@ -79,16 +84,16 @@ Route::get('/tweets/{tweet}/share', [ShareButtonController::class, 'share'])->na
     Route::get('/wallet', [WalletController::class, 'index'])->name('wallet.index');
     Route::get('/wallet/topup', [TopupController::class, 'index'])->name('topup');
     // Route::get('/wallet/topup', [WalletController::class, 'topUp'])->name('wallet.topup');
-    // Route::post('/wallet/topup', [WalletController::class, 'storeTopUp'])->name('wallet.topup.store');
+    Route::post('/wallet/topup', [TransactionController::class, 'topUp'])->name('wallet.topup');
     // ...
 });
 
 // donation
 
 Route::get('tweets/{tweet}/donate', [DonationController::class, 'index'])->name('donate.index');
-Route::get('tweets/{tweet}/donate/pay', [DonationController::class, 'showPay'])->name('donate.pay');
+// Route::get('tweets/{tweet}/donate/pay', [DonationController::class, 'showPay'])->name('donate.pay');
 // Route::get('tweets/{tweet}/donate', [DonationController::class, 'index'])->name('donate.pay');
-Route::post('tweets/{tweet}/donate', [DonationController::class, 'store'])->name('donate');
+Route::post('tweets/{tweet}/donate', [TransactionController::class, 'donate'])->name('donate');
 
 
 //category
@@ -100,4 +105,5 @@ Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProv
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('donate/callback', [PaymentCallbackController::class, 'donateCallback']);
+Route::post('topup/callback', [PaymentCallbackController::class, 'topUpCallback']);
