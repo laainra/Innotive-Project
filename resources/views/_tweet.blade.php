@@ -1,4 +1,4 @@
-<div class="flex p-4 border-b {{$loop->last ? '' : 'border-b-gray-300'}}">
+<div class="flex p-4  border-b-gray-300 {{$loop->last ? '' : 'border-b-gray-300'}}">
   <div class="mr-2 flex-shrink-0">
       <a href="{{route('users.show', $tweet->user)}}">
         <img 
@@ -13,12 +13,12 @@
   <div>
       <div class="flex justify-between"  style="width: 600px">
         <div>
-          <h5 class="font-bold mb-4">
+          <h2 class="font-bold mb-4">
             <a href="{{route('users.show', $tweet->user)}}">
               {{ $tweet->user->name }}
             </a>
             <p class="text-xs">posted {{$tweet->created_at->diffForHumans()}} in <a href="/categories/{{$tweet->category->slug}}"> {{ optional($tweet->category)->name }} </a></p>
-          </h5>
+          </h2>
           
         </div>
         
@@ -28,7 +28,7 @@
               @csrf
               @method('DELETE')
               <button type="submit">
-                <i class="ml-8 fas fa-trash text-red-500"></i>
+                <i class="ml-20 fas fa-trash text-red-500"></i>
               </button>
             </form>
           @endif
@@ -37,7 +37,7 @@
       <a href="{{route('tweets.show', ['tweet' => $tweet->id] )}}">
       <div class="flex justify-between">
         
-        <p class="text-sm">
+        <p class="text-lg">
           {{ $tweet->body }}
         </p>
 

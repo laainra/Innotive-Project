@@ -14,7 +14,7 @@
     <div>
         <div class="flex justify-between"  style="width: 600px">
           <div>
-            <h5 class="font-bold mb-4 text-lg">
+            <h5 class="font-bold mb-4 text-xl">
               <a href="{{route('users.show', $tweet->user)}}">
                 {{ $tweet->user->name }}
               </a>

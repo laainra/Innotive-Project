@@ -1,1 +1,1 @@
-<img class="h-12 w-12" src="{{asset('images/innotive.png')}}">
+<img class="h-20 w-20" src="{{asset('images/innotive.png')}}">

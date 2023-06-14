@@ -1,4 +1,5 @@
 <x-app-layout>
+  @section('title', 'Categories')
 
     <h1 class="text-4xl text-center mb-10">Category: {{$category}}</h1>
 

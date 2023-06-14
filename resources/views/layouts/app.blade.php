@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title> @yield('title') | {{auth()->user()->name}} | {{ config('app.name', 'Innotive')   }}</title>
+        <title> @yield('title') | {{auth()->user()->name}} </title>
         <link rel="icon" href="{{asset('images/innotive.png')}}" type="image/x-icon">
 
         <!-- Fonts -->
@@ -49,7 +49,7 @@
             </header> --}}
 
             <!-- Page Content -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:flex lg:justify-between">
             
                     <div class="hidden lg:block fixed top-0 left-0 lg: mt-2 px-20 pr-11">
@@ -65,7 +65,7 @@
                         </main>
                     </div>
             
-                    <div class="hidden lg:block fixed top-0 right-0 lg:w-1/6 p-2 rounded-lg mt-2 ">
+                    <div class="hidden lg:block fixed top-0 right-0 lg:w-1/6 p-2 rounded-lg mt-2 mr-4">
                         @include('_friends-list')
                     </div>
             
