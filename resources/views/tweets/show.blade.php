@@ -1,4 +1,5 @@
 <x-app-layout>
+  @section('title', "Post")
 <div class="flex p-4 border-b">
     <div class="mr-2 flex-shrink-0 justify-between">
         <a href="{{route('users.show', $tweet->user)}}">

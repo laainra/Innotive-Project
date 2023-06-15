@@ -56,7 +56,7 @@
                         @include('_sidebar-links')
                     </div>
             
-                    <div class="lg:flex-1 border-l-2 border-r-2 border-purple-300 lg:mx-40 w-56">
+                    <div class="lg:flex-1 border-l-2 border-r-2 border-purple-200 lg:mx-40 w-56 sm: w-full">
                         <div class="bg-purple-100 sticky top-0 py-6 px-6 text-center text-xl text-bold shadow-md">
                             @yield('title')
                         </div>

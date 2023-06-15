@@ -57,7 +57,7 @@
 
                           </div>
                      
-                          <a class=" text-sm text-gray-600 hover:text-gray-900" href="/forgot-password">
+                          <a class=" text-sm text-gray-600 hover:text-gray-900" href="/forget-password">
                               {{ __('Forgot your password?') }}
                           </a>
                      

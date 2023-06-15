@@ -2,12 +2,12 @@
   @section('title', 'Explore')
 <div class="">
   <form action="{{ route('explore.search') }}" method="GET" class="mb-4">
-    <input type="text" name="search" placeholder="Search users..." class="border border-gray-300 rounded-lg p-2">
+    <input type="text" name="search" placeholder="Search users..." class="border border-gray-300 rounded-lg w-full ">
     <button type="submit" class="bg-purple-500 text-white rounded-lg px-4 py-2">Search</button>
 </form>
 
-  <div class="justify-center">
-    @foreach ($users as $user)
+  <div class="justify-center hover: bg-purple 300">
+    @foreach ($users->take(15)  as $user)
       <a href="{{route('users.show', $user)}}" class="flex items-center mb-5 ">
         <img src="{{$user->avatar}}" 
         alt="{{$user->username}}'s avatar"

@@ -16,23 +16,20 @@ class WalletController extends Controller
         $this->middleware(['auth','verified']);
     }
 
-    public function index(Transaction $transactions)
+    public function index()
     {
-        
         $user = Auth::user(); // Retrieve the currently authenticated user
-        $wallet = $user->wallet; 
-        $transactions = $wallet->transactions;
-        // Retrieve the user's wallet
+        $wallet = $user->wallet;
+        $transactions = Transaction::with(['debitedWallet.user', 'creditedWallet.user'])
+            ->where(function ($query) use ($wallet) {
+                $query->where('debited_wallet', $wallet->id)
+                    ->orWhere('credited_wallet', $wallet->id);
+            })
+            ->get();
     
-        if (!$wallet) {
-            $wallet = $user->Wallet::create([
-                'user_id' => $user->id,
-                'balance' => 0, // Set initial balance to 0
-            ]); // Create wallet if it doesn't exist
-        }
-        
         return view('wallet', compact('user', 'wallet', 'transactions'));
     }
+    
 
     public function topUp()
     {

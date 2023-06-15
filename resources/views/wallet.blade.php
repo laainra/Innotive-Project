@@ -19,6 +19,8 @@
     <thead>
         <tr>
             <th>Reference ID</th>
+            <th>Sender</th>
+            <th>Receipient</th>
             <th>Description</th>
             <th>Amount</th>
             <th>Type</th>
@@ -30,6 +32,8 @@
             @if ($transaction->debited_wallet == auth()->user()->wallet->id || $transaction->credited_wallet == auth()->user()->wallet->id)
                 <tr>
                     <td>{{ $transaction->reference_id }}</td>
+                    <td>{{ optional(optional($transaction->debitedWallet)->user)->name }}</td>
+                    <td>{{ optional(optional($transaction->creditedWallet)->user)->name }}</td>
                     <td>{{ $transaction->description }}</td>
                     <td>{{ $transaction->amount }}</td>
                     <td>{{ $transaction->type }}</td>

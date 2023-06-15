@@ -29,5 +29,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Wallet::class, 'debited_wallet');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 }
