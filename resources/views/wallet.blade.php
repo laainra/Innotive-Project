@@ -27,7 +27,7 @@
             <th>Date & time</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="bg-purple-100">
         @foreach ($transactions as $transaction)
             @if ($transaction->debited_wallet == auth()->user()->wallet->id || $transaction->credited_wallet == auth()->user()->wallet->id)
                 <tr>

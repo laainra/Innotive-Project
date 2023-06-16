@@ -120,3 +120,4 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 //notif
 Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
+
