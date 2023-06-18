@@ -65,7 +65,7 @@ DB_USERNAME=<your database username>
 DB_PASSWORD=<your database password>
 ```
 Import database
-innotive.sql to your database
+innotive.sql to your database : https://github.com/laainra/Innotive-Project/blob/main/innotive.sql
 
 Once this is complete you can start the app by-
 ```bash
