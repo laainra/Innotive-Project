@@ -5,11 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Like;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Builder;
+use Takshak\Wallet\Traits\HasWalletTransaction;
+
+
 
 class Tweet extends Model
 {
     use HasFactory;
+    use HasWalletTransaction;
+
 
     protected $fillable = [ 'user_id', 'body', 'tweetImage' ,'category_id',];
 
@@ -34,8 +40,36 @@ class Tweet extends Model
 
     public function dislike($user = null)
     {
-        return $this->like($user, false);
+        $existingLike = $this->likes()
+            ->where('user_id', $user ? $user->id : auth()->user()->id)
+            ->first();
+    
+        if ($existingLike) {
+            $existingLike->update(['liked' => false]);
+        } else {
+            $existingDislike = $this->dislikes()
+                ->where('user_id', $user ? $user->id : auth()->user()->id)
+                ->first();
+    
+            if ($existingDislike) {
+                $existingDislike->update(['liked' => false]);
+            } else {
+                $this->likes()->create([
+                    'user_id' => $user ? $user->id : auth()->user()->id,
+                    'liked' => false,
+                ]);
+            }
+        }
     }
+    
+    
+    
+
+    public function dislikes()
+{
+    return $this->hasMany(Like::class)->where('liked', false);
+}
+
 
     public function like($user = null, $liked = true)
     {
@@ -74,4 +108,28 @@ class Tweet extends Model
             'tweets.id'
         );
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function commentCount()
+{
+    return $this->comments->count();
+}
+// public function donations()
+// {
+//     return $this->hasMany(Transaction::class, 'reference_id')->where('type', 'donate');
+// }
+public function donations()
+{
+    return $this->hasMany(Donation::class);
+}
+
+public function transactions()
+{
+    return $this->hasMany(Transaction::class);
+}
+
+
 }

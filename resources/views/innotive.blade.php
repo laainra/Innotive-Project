@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="{{asset('images/innotive.png')}}"/>
 
     <link rel="stylesheet" href="{{asset('css/login.css')}}" />
-    <title>Innotive</title>
+    <title>Sign In or Register</title>
   </head>
   <body>
     <div class="container">
@@ -56,11 +56,11 @@
           
 
                           </div>
-                          @if (Route::has('password.request'))
-                          <a class=" text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                     
+                          <a class=" text-sm text-gray-600 hover:text-gray-900" href="/forget-password">
                               {{ __('Forgot your password?') }}
                           </a>
-                      @endif
+                     
       
             <input type="submit" value="Login" class="btn"/>
             <p class="social-text">Or Sign in with social platforms</p>
@@ -129,7 +129,7 @@
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <h3>Sign In to<br>Recharge Direct</h3><br>
+            <h3>Sign In to<br>Share Your Innovations</h3><br>
             <p class="m-3">
               Hello Creativity Addict, Welcome to INNOTIVE... <br>Join Us Now To Show Your Innovation
             </p>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddWalletId extends Migration
+class AddTweetIdToTransactions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AddWalletId extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('wallet_id')->nullable();
-
-            $table->foreign('wallet_id')->references('id')->on('wallets');
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->unsignedBigInteger('tweet_id')->nullable();
+            $table->foreign('tweet_id')->references('id')->on('tweets')->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,8 @@ class AddWalletId extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('User');
+        Schema::table('transactions', function (Blueprint $table) {
+            //
+        });
     }
 }

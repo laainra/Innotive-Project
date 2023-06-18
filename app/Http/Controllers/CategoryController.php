@@ -21,14 +21,17 @@ class CategoryController extends Controller
         return view('categories.index', compact('categories'));
     }
 
-    public function show(Category $category){
-    $category = Category::all();
-    $tweets = $category->tweets()
-        ->withLikes()
-        ->paginate(10);
-
-    return view('categories.show', compact('category', 'tweets'));
+    public function show(Category $category)
+    {
+        $tweets = Tweet::where('category_id', $category->id)->paginate(10);
+    
+        return view('categories.show', [
+            'title' => $category->name,
+            'tweets' => $tweets,
+            'category' => $category->name
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

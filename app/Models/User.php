@@ -8,12 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Tweet;
-use Bavix\Wallet\Traits\HasWallet;
-use Bavix\Wallet\Interfaces\Wallet;
+use App\Models\Comment;
+use App\Models\Wallet;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Takshak\Wallet\Traits\HasWallet;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable; 
+    use HasFactory, Notifiable, HasWallet; 
 
     /**
      * The attributes that are mass assignable.
@@ -108,6 +110,12 @@ class User extends Authenticatable
         ->exists();
     }
 
+    public function followers()
+{
+    return $this->belongsToMany(User::class, 'follows', 'following_user_id', 'user_id');
+}
+
+
     public function likes()
     {
         return $this->hasMany(Like::class);
@@ -117,10 +125,30 @@ class User extends Authenticatable
     {
         return $this->hasMany(SocialAccount::class);
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
-    // public function wallet()
-    // {
-    //     return $this->belongsTo(Wallet::class);
-    // }
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class);
+    }
+
+
+        public function createWallet()
+        {
+            if (!$this->wallet) {
+                $wallet = new Wallet();
+                $wallet->user_id = $this->id;
+                $wallet->balance = 0;
+                $wallet->save();
+                $this->load('wallet'); // Reload the relationship
+            }
+    
+            return $this->wallet;
+        }
+    
+    
 
 }

@@ -62,7 +62,7 @@ class PasswordResetLinkController extends Controller
 
 
 
-        Mail::send('email.forgetPassword', ['token' => $token], function($message) use($request){
+        Mail::send('email.forget-password', ['token' => $token], function($message) use($request){
 
             $message->to($request->email);
 
