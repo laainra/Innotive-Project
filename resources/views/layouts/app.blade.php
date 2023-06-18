@@ -65,7 +65,7 @@
                         </main>
                     </div>
             
-                    <div class="hidden lg:block fixed top-0 right-0 lg:w-1/6 p-2 rounded-lg mt-2 mr-4">
+                    <div class="hidden lg:block fixed top-0 right-0 lg:w-1/6 p-2 rounded-lg mt-2 mr-6">
                         @include('_friends-list')
                     </div>
             

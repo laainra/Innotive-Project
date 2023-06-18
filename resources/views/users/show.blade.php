@@ -29,7 +29,8 @@
 
         </div>
         <div>
-          <h1> <b>{{$totalDonation}}</b> Donation Recieved</h1>
+          
+          <h1> <b>{{'Rp ' . number_format($totalDonation, 0, ',', '.')}}</b> Donation Recieved</h1>
         </div>
       </div>
       <div class="flex">

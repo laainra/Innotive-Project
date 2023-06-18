@@ -30,7 +30,8 @@ class TransactionController extends Controller
             'amount' => $amount,
             'type' => 'donate',
             'method' => $method,
-            'status' => 1, // Initial status: wait for payment
+            'status' => 1,
+            'tweet_id' => $tweet->id // Initial status: wait for payment
         ]);
     
         // Check if the selected method is "wallet"
@@ -67,7 +68,7 @@ class TransactionController extends Controller
         // return redirect()->away($snapToken);
     
 
-    public function topUp(Request $request)
+    public function topUp(Request $request, Tweet $tweet)
     {
 
         $amount = $request->amount;
@@ -82,7 +83,8 @@ class TransactionController extends Controller
             'amount' => $amount,
             'type' => 'topup',
             'method' => $method,
-            'status' => 1, // Menunggu pembayaran
+            'status' => 1,
+            'tweet_id' => $tweet->id 
         ]);
 
         $creditedWallet = auth()->user()->wallet;

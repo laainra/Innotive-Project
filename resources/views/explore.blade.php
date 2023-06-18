@@ -3,7 +3,9 @@
 <div class="">
   <form action="{{ route('explore.search') }}" method="GET" class="mb-4">
     <input type="text" name="search" placeholder="Search users..." class="border border-gray-300 rounded-lg w-full ">
+    <div class="mt-2">
     <button type="submit" class="bg-purple-500 text-white rounded-lg px-4 py-2">Search</button>
+    </div>
 </form>
 
   <div class="justify-center hover: bg-purple 300">

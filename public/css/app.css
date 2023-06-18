@@ -88,6 +88,11 @@ Text-level semantics
 /**
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
+.dark-mode {
+    --bg-color: #0b061f;
+    --text-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .7);
+}
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;

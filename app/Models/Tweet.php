@@ -117,4 +117,19 @@ class Tweet extends Model
 {
     return $this->comments->count();
 }
+// public function donations()
+// {
+//     return $this->hasMany(Transaction::class, 'reference_id')->where('type', 'donate');
+// }
+public function donations()
+{
+    return $this->hasMany(Donation::class);
+}
+
+public function transactions()
+{
+    return $this->hasMany(Transaction::class);
+}
+
+
 }

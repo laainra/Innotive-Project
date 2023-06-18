@@ -18,6 +18,7 @@ class Transaction extends Model
         'type',
         'method',
         'status',
+        'tweet_id'
     ];
 
     public function creditedWallet()
@@ -33,5 +34,11 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function tweet()
+{
+    return $this->belongsTo(Tweet::class);
+}
+
 
 }

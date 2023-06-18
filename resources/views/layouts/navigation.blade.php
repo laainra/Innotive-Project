@@ -86,6 +86,9 @@
             <x-responsive-nav-link :href="route('explore')" :active="request()->routeIs('explore')">
                 {{ __('Explore') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
+                {{ __('Notifications') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                 {{ __('Categories') }}
             </x-responsive-nav-link>
@@ -94,6 +97,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('wallet.index')" :active="request()->routeIs('wallet.index')">
                 {{ __('Wallet') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('traffic')" :active="request()->routeIs('traffic')">
+                {{ __('Traffic') }}
             </x-responsive-nav-link>
         </div>
 

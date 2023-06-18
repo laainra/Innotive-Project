@@ -170,7 +170,7 @@ class ForgotPasswordController extends Controller
 
   
 
-          return redirect('/')->with('message', 'Your password has been changed!');
+          return back()->with('message', 'Your password has been changed!');
 
       }
 

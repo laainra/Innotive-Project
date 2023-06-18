@@ -13,6 +13,7 @@ use App\Http\Controllers\ShowTweetController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TweetLikesController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ShareButtonController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\NotificationController;
@@ -32,7 +33,18 @@ use Jorenvh\Share\ShareFacade as Share;
 |
 */
 
+
+//landing page
 Route::get('/', function () {
+    $user = auth()->user();
+    return view('landing');
+});
+
+//contact form
+Route::post('/contact-form', [ContactController::class, 'store']);
+
+// register login
+Route::get('/join', function () {
     $user = auth()->user();
     return view('innotive', [
         'user' => $user
@@ -40,75 +52,78 @@ Route::get('/', function () {
 });
 
 
-
-
-// wallet
+// Authorized Users
 Route::middleware(['auth', 'verified'])->group(function () {
+    //Timeline
     Route::resource('tweets', TweetController::class);
-// Route::get('tweets/{tweet}', [ShowTweetController::class, 'show'])
-// ->middleware('auth')->name('tweet.detail');
-Route::get('users/{user:username}', [UserController::class, 'show'])
-->middleware('auth')
-->name('users.show');
-Route::post('users/{user:username}/follow', [FollowController::class, 'store'])
-->middleware('auth');
-Route::get('users/{user:username}/edit', [userController::class, 'edit'])
-->middleware('auth')
-->name('users.edit');
-Route::patch('users/{user:username}', [userController::class, 'update'])
-->middleware('auth')
-->name('users.update');
-Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
-Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
-Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
-Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
-Route::get('/tweets/{tweet}', [TweetController::class, 'show'])->name('tweets.show');
+    Route::get('/tweets/{tweet}', [TweetController::class, 'show'])->name('tweets.show');
+    Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
+    Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
 
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+    //Profile
+    Route::get('users/{user:username}', [UserController::class, 'show'])
+    ->middleware('auth')
+    ->name('users.show');
+    Route::post('users/{user:username}/follow', [FollowController::class, 'store'])
+    ->middleware('auth');
+    Route::get('users/{user:username}/edit', [userController::class, 'edit'])
+    ->middleware('auth')
+    ->name('users.edit');
+    Route::patch('users/{user:username}', [userController::class, 'update'])
+    ->middleware('auth')
+    ->name('users.update');
+
+    //Explore
+    Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
+    Route::get('/explore/search', [UserController::class, 'search'])->name('explore.search');
+
+    
+    
+    // Category
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
 
 
 
-//comments
+    //comments
 
-Route::post('tweets/{tweet}/comment', [CommentController::class, 'store'])->name('tweets.comment.store');
-Route::get('tweets/{tweet}/comment', [CommentController::class, 'index'])->name('comment.index');
-Route::delete('tweets/{tweet}/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+    Route::post('tweets/{tweet}/comment', [CommentController::class, 'store'])->name('tweets.comment.store');
+    Route::get('tweets/{tweet}/comment', [CommentController::class, 'index'])->name('comment.index');
+    Route::delete('tweets/{tweet}/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
-//share
+    //share
+    Route::get('/tweets/{tweet}/share', [ShareButtonController::class, 'share'])->name('tweets.share');
 
-Route::get('/tweets/{tweet}/share', [ShareButtonController::class, 'share'])->name('tweets.share');
+    // donation
 
+    Route::get('tweets/{tweet}/donate', [DonationController::class, 'index'])->name('donate.index');
+    Route::post('tweets/{tweet}/donate', [TransactionController::class, 'donate'])->name('donate');
+
+
+    //notif
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
 
 
     
-    // ...
+    // Wallet
     Route::get('/wallet', [WalletController::class, 'index'])->name('wallet.index');
     Route::get('/wallet/topup', [TopupController::class, 'index'])->name('topup');
-    // Route::get('/wallet/topup', [WalletController::class, 'topUp'])->name('wallet.topup');
     Route::post('/wallet/topup', [TransactionController::class, 'topUp'])->name('wallet.topup');
-    // ...
+
+    // traffic
+    Route::get('/traffic', [TweetController::class, 'showTraffic'])->name('traffic');
+    
 });
 
-// donation
-
-Route::get('tweets/{tweet}/donate', [DonationController::class, 'index'])->name('donate.index');
-// Route::get('tweets/{tweet}/donate/pay', [DonationController::class, 'showPay'])->name('donate.pay');
-// Route::get('tweets/{tweet}/donate', [DonationController::class, 'index'])->name('donate.pay');
-Route::post('tweets/{tweet}/donate', [TransactionController::class, 'donate'])->name('donate');
 
 
-//category
-
-
-// socialite
+// login with googlw and github via socialite 
 Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProvideCallback']);
 
-require __DIR__.'/auth.php';
 
-Route::post('donate/callback', [PaymentCallbackController::class, 'donateCallback']);
-Route::post('topup/callback', [PaymentCallbackController::class, 'topUpCallback']);
+
+//Forget Password
 
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
@@ -118,6 +133,6 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-//notif
-Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
 
+// Include ROute dari auth.php
+require __DIR__.'/auth.php';

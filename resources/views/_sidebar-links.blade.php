@@ -1,7 +1,7 @@
 
 <ul >
   <li> 
-    <div class="flex-shrink-0 flex items-center mb-10">
+    <div class="flex-shrink-0 flex items-center mb-10 mt-5 ">
         
         <a href="{{ route('tweets.index') }}">
             <x-application-logo class="block h-50 w-auto fill-current text-gray-600" />
@@ -62,6 +62,14 @@
     </span>
       <a class="font-bold text-2xl mb-6 block hover:text-purple-500 {{ Request::is('wallet*') ? 'text-purple-500' : '' }}" href="/wallet">
           Wallet
+      </a>
+  </li>
+  <li class="flex items-center">
+    <span class="material-symbols-outlined mr-5 mb-6">
+      monitoring
+    </span>
+      <a class="font-bold text-2xl mb-6 block hover:text-purple-500 {{ Request::is('traffic*') ? 'text-purple-500' : '' }}" href="/traffic">
+          Traffic
       </a>
   </li>
   <li class="flex items-center mb-30">

@@ -33,6 +33,7 @@
                   <i class="ml-8 fas fa-trash text-red-500"></i>
                 </button>
               </form>
+
             @endif
           </div>
         </div>
@@ -81,15 +82,30 @@
                   ios_share
             </button>
           </div>
-        
+          
+          @if ($tweet->user->id !== auth()->id())
           <div class="flex items-right mr-5">
             <button type="submit" class="bg-purple-500 rounded-lg shadow py-1 px-3 ml-2 text-white h-10 hover:bg-purple-900">
-              {{-- <form action="{{ route('donate', $tweet) }}" method="POST">
-                @csrf --}}
-                <a href="{{route('donate.index', $tweet)}}">Donate</a>
+                <a href="{{route('donate.index', $tweet)}}">
+                  <span class="material-symbols-outlined">
+                    send_money
+                    </span>
+                  Donate</a>
         
               {{-- </form> --}}
           </div>
+        @endif
+        @if (auth()->user()->is($tweet->user))
+        <div class="flex items-center mr-5">
+          <button type="submit" class="text-xs text-purple-800 flex items-center"     >
+            <span class="material-symbols-outlined p-1 rounded" id="iosShareButton">
+
+                account_balance_wallet
+                </span>
+                <span class="">{{ 'Rp ' . number_format($totalDonation, 0, ',', '.') }}</span>
+          </button>
+        </div>
+        @endif
           <div>
         
           </div>
