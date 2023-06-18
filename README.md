@@ -1,11 +1,11 @@
 <h1 align="center">
   <a href="https://laravel.com/"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200"></a>
   <br>
-  Tweety
+  Innotive
   <br>
 </h1>
 
-<h3 align="center">Twitter clone app. Built using <a href="https://laravel.com" target="_blank">Laravel</a>.</h3><br/>
+<h3 align="center">Innotive app. Built using <a href="https://laravel.com" target="_blank">Laravel</a>.</h3><br/>
 
 <p align="center">
 <img src="https://img.shields.io/badge/laravel-v8.0+-red.svg" alt="Laravel">
@@ -27,22 +27,20 @@
 </p>
 </h3>
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/durlavk98/tweety/main/public/images/tweety.gif"/>
-</div>
-
-## About
-Tweety is a twitter clone built using laravel 8. It uses mysql database. Tailwindcss has been used to style the web app.
-Tweety is a project from [Laravel from scratch](https://laracasts.com/series/laravel-6-from-scratch) course available on [Laracasts](https://laracasts.com/). Follow Laracasts for some great learning content. This project is just an extended and new version of the [original](https://github.com/laracasts/Tweety) one with some added features. There are still some features waiting to be added. Any contribution or feature added will be much welcomed :smile:.
-
+## Kelompok
+<h1>Ahitsa Dawang R (V3922002) <br>
+Amaliya Razyan Nur H (V3922005) <br>
+Fauzi Ihsan Ansori (V3922021) <br>
+Laila Ainur Rahma (V3922026)
+</h1>
 ## Installation
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/durlavk98/tweety
+$ git clone https://github.com/laainra/Innotive-Project
 
 # Go into the repository
-$ cd tweety
+$ cd Innotive-Project
 
 # Install dependencies
 $ composer install
@@ -57,19 +55,21 @@ $ php artisan key:generate
 
 ## How To Use
 
-To use/run tweety you need to configure your mysql database and add database details to the .env file.
+To use/run, you need to configure mysql database and add database details to the .env file.
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=tweety
+DB_DATABASE=innotive
 DB_USERNAME=<your database username>
 DB_PASSWORD=<your database password>
 ```
+Import database
+innotive.sql to your database
+
 Once this is complete you can start the app by-
 ```bash
-# Run the migration
-$ php artisan migrate
+
 
 # Install npm dependencies
 $ npm install
@@ -93,42 +93,3 @@ $ php artisan storage:link
 - [Tailwindcss](https://tailwindcss.com)
 - [Laracasts-Tweety](https://github.com/laracasts/Tweety)
 
-## Related
-
-[tweety-vue](https://github.com/durlavk98/tweety-vue) - Tweety app built using vuejs
-
-
-## License
-
-MIT
-
-## Todo
-- [x] The profile page banner image and description are hard-coded. Make these dynamic for each user. 
-
-- [x] Add the ability to attach an image when publishing a tweet.
-
-- [x] There is currently no way to unlike a tweet. Add the ability to toggle a like.
-
-- [x] Add a pop-up flash message when a user publishes a tweet or follows someone.
-
-- [ ] Consider adding Laravel Livewire to allow for more interactive forms.
-
-- [ ] When writing a new tweet, display the number of remaining characters they're allowed.
-
-- [x] Allow tweets to be deleted.
-
-- [ ] Add support for mentions and notifications.
-
-- [ ] Work on responsiveness.
-
-## Some of my other project on laravel
-
-- [websocket-vue-chat](https://github.com/durlavk98/websocket-vue-chat) - Real time chat app built usiing laravel websockets, vuejs
-
-
----
-
-> [@durlav](https://durlavkalita.github.io) &nbsp;&middot;&nbsp;
-> Linkedin [@durlavkalita](https://linkedin.com/in/durlavkalita)&nbsp;&middot;&nbsp;
-> Medium [@durlavkalita](https://durlavkalita.medium.com) &nbsp;&middot;&nbsp;
-> Twitter [@durlavk98](https://twitter.com/durlavk98)
