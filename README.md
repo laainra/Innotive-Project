@@ -82,10 +82,4 @@ To upload image, configure storage link in `filesystem.php` and run-
 $ php artisan storage:link
 ```
 
-## Credits
-
-- [Laravel](http://laravel.com)
-- [Laracasts](https://laracasts.com)
-- [Tailwindcss](https://tailwindcss.com)
-- [Laracasts-Tweety](https://github.com/laracasts/Tweety)
 
