@@ -11,8 +11,6 @@
 <img src="https://img.shields.io/badge/laravel-v8.0+-red.svg" alt="Laravel">
 <img src="https://img.shields.io/badge/mysql-v8.0.23-blue.svg" alt="Mysql">
 <img src="https://img.shields.io/badge/tailwindcss-v2.0.3-lightblue.svg" alt="Tailwind">
-<img src="https://img.shields.io/badge/contributions-welcome-orange.svg" alt="Contributions">
-<img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
 </p>
 
 <h3>
