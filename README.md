@@ -22,9 +22,9 @@
 </h3>
 
 ## Overview
-![ss]((https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(769).png?raw=true)
-![ss]((https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(770).png?raw=true)
-![ss]((https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(771).png?raw=true)
+![ss](https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(769).png?raw=true)
+![ss](https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(770).png?raw=true)
+![ss](https://github.com/laainra/Innotive-Project/blob/main/Screenshot/Screenshot%20(771).png?raw=true)
 ## Kelompok
 <h1>Ahitsa Dawang R (V3922002) <br>
 Amaliya Razyan Nur H (V3922005) <br>
